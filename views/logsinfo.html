@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <script src="/public/js/jquery-3.6.min.js"></script>
+    <link rel='stylesheet' href="/public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/index.css">
+    <script src="/public/js/base.js"></script>
+    <script src="/public/js/logsinfo.js"></script>
+    <title>订单详情页</title>
+</head>
+<body>
+<div id="search" class="border-bottom">
+    
+</div>
+<div class="bg-light pb-5 pt-3">
+    <div class="container bg-white">
+        <div class="infoChecked m-3 border-bottom pl-4 pt-4 pl-4 pb-2">订单信息</div>
+        <div id="loginfo" class="pl-4 m-3">
+            <div class="mt-2 mb-3" >订单状态:<span class="infoChecked" id="logstate">已收货</span></div>
+            <div class="progress" id="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 75%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">已收货</div>
+            </div>
+            <div class="mt-3 mb-4 border"></div>
+            <div class="mb-1" id="logsnum">订单编号:1</div>
+            <div class="mb-1" id="logstime">订单日期:1</div>
+            <div class="mb-1" id="logsprice">订单金额:1</div>
+            <div class="mt-3 mb-4 border"></div>
+            <div class="mb-1" id="usernmt">收货人：张三<span>&nbsp&nbsp联系电话:11231456</span></div>
+            <div class="mb-1" id='useraddress'>收货地址</div>
+            <div class="mb-1 w-50">
+                <div class="float-left">物流信息:</div>
+                <div class="float-left" id="wuliuxingxi">&nbsp&nbsp您的快件已由其他（您所指定的地方）代收，感谢您使用京东物流，期待再次为您服务。2021/05/26 10:45:56</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="mt-3 mb-4 border"></div>
+            <div class="cartItem border-bottom m-3" id="logsitem">
+                <div class="itemSp">
+                    <div class="float-left">订单日期：2021/05/22 00:05:32</div>
+                    <div class="float-right infoChecked">已收货</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="itemIf border-bottom pb-3">
+                    <div class="float-left">
+                        <img class="align-self-center float-left mt-3" src="/public/img/Itemimg.png" style="height: 120px;width: 120px"/>
+                        <div class="float-left justify-content-center mt-5 ml-3">
+                            <div>象鼻子 骨传导运动型蓝牙耳机 BH818</div>
+                            <div class="infoChecked">￥259.00</div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="float-right infoChecked mt-5">X&nbsp1</div>
+
+                    <div class="clearfix"></div>
+                    <div>共<span>一</span>件商品, 订单总金额: <span class="infoChecked">259</span>元</div>
+                </div>
+            </div>
+            <div class="mt-3 fontgary ml-3">运费:0元</div>
+            <div class="mt-2 fontgary ml-3 pb-5">发票:不开发票</div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="border-top">
+    
+</div>
+</body>
+</html>

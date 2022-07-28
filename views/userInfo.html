@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, inital-scale=1" />
+		<style>
+			#myddmain,#mydzmain,#myscmain,#myzcmain{
+				display: none;
+			}
+		</style>
+		<script src="/public/js/jquery-3.6.min.js"></script>
+		<link rel='stylesheet' href="/public/css/bootstrap.min.css" />
+		<script src="/public/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="/public/css/index.css">
+		<script src="/public/js/userinfo.js"></script>
+		<title>[CT]</title>
+
+	</head>
+	<body class="bg-light">
+		{{include './pagehead.html'}}
+
+		<div class="container bg-light mt-3">
+			<div class="float-left p-2">
+				<img src="/public/img/logo@2x.30cd8c00.png" class=" m-auto align-self-center" width="166px" height="51px"  />
+			</div>
+			<div class="align-items-end float-right p-3">
+				<div class="input-group border pl-2 rounded">
+					<div class="input-group-prepend m-auto pr-2">
+						<img src="/public/img/bootstrap-icons-1.7.1/search.svg" width="16" height="16"/>
+					</div>
+					<input type="text" class="form-control" placeholder="找找宝贝" id="searchinput">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" id="searchbtn">搜索</button>
+					</div>
+					<span class="p-1"><a class="text-decoration-none" href="/cart"><img src="/public/img/bootstrap-icons-1.7.1/cart.svg" id="gocart" class="gocart"></a></span>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+
+			<div class="navlist">
+				首页&nbsp > &nbsp个人中心&nbsp > &nbsp我的订单
+			</div>
+
+			<div class="cartbody row mt-3">
+				<div class="float-left col-3 pr-2">
+					<div class="bg-white text-center p-5">
+						<img src="/public/img/head.jpg" class="rounded" style="height: 64px;width: 64px;">
+						<div id="username2" class="mt-2">{{username}}</div>
+					</div>
+					<div class="myInfo bg-white text-center">
+						<ul class="list-unstyled pt-3 border-top" id="mylistgt">
+							<li class="mt-3" id="myddli">我的订单</li>
+							<li class="mt-3" id="myzcli">我的资产</li>
+							<li class="mt-3" id="myscli">我的收藏</li>
+							<li class="mt-3" id="mydzli">地址管理</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="float-right col-9 bg-white" id="myddmain">
+					<div id="cartHead" class="border-bottom m-3 row">
+						<div class="col-8 row float-left text-center" id="probtnlist">
+							<div class="col-3 cartCheck" id="pronsh">待收货</div>
+							<div class="col-3" id="pronsd">待送达</div>
+							<div class="col-3" id="proysh">已收货</div>
+							<div class="col-3" id="proall">全部订单</div>
+						</div>
+						<div class="col-4 float-right text-right p-0">回收站</div>
+					</div>
+					<div id="useritemgroup">
+					<div class="cartItem border-bottom m-3">
+						<div class="itemSp">
+							<div class="float-left">订单日期：2021/05/22 00:05:32</div>
+							<div class="float-right infoChecked">已收货</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemIf border-bottom pb-3">
+							<div class="float-left">
+								<img class="align-self-center float-left mt-3" src="/public/img/Itemimg.png" style="height: 120px;width: 120px"/>
+								<div class="float-left justify-content-center mt-5 ml-3">
+									<div>象鼻子 骨传导运动型蓝牙耳机 BH818</div>
+									<div class="infoChecked">￥259.00</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="float-right infoChecked mt-5">X&nbsp1</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemMo mt-3 mb-3">
+							<div class="float-right">
+								<div>共<span>一</span>件商品, 订单总金额: <span class="infoChecked">259</span>元</div>
+								<div class="mt-3 float-right">
+									<button class="bg-white ml-2 pl-3 pr-3 border border-dark">删除订单</button>
+									<button class="bg-white ml-2 pl-3 pr-3 border border-dark">订单详情</button>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="float-right col-9 bg-white p-3" id="myzcmain">
+					<div class="infoChecked m-3 border-bottom">优惠券</div>
+					<div class="youhuijuansearch">
+						<div class="ml-3 mr-3 mt-4 mb-4 w-75 overflow-hidden">
+							<input type="text" class="form-control w-50 float-left" placeholder="请输入优惠码">
+							<input type="button" class="float-left ml-2 CheckBTN p-2 border-0 rounded" value="确认兑换">
+						</div>
+					</div>
+					<div class="m-3 row w-50 text-center pt-3" id="youhuijuanHead">
+						<div class="col-4 checkBorder p-0">可使用</div>
+						<div class="col-4 p-0">已使用</div>
+						<div class="col-4 p-0">已过期/已失效</div>
+					</div>
+					<div class="text-center mt-4">
+						<img class="mt-5 w-25 h-25" src="/public/img/nullview.png">
+						<div class="mt-3">您还没有任何优惠券</div>
+					</div>
+				</div>
+				<div class="float-right col-9 bg-white" id="myscmain">
+					<div class="infoChecked m-3 border-bottom">我的收藏</div>
+					<div class="card-group row m-3 pl-3 pr-3">
+						<div class="card col-4 mr-2 p-0">
+							<img src="/public/img/ypms1.jpg" class="card-img-top align-self-center" alt="...">
+							<div class="card-body p-2 zhuanqupro">
+								<h5 class="text-center mt-1">女表礼盒套装</h5>
+								<div class="text-center pricetitle">￥<span class="price">499</span>起<span class="nsprice">￥1999</span></div>
+							</div>
+						</div>
+						<div class="card col-4 mr-2 p-0">
+							<img src="/public/img/ypms1.jpg" class="card-img-top align-self-center" alt="...">
+							<div class="card-body p-2 zhuanqupro">
+								<h5 class="text-center mt-1">女表礼盒套装</h5>
+								<div class="text-center pricetitle">￥<span class="price">499</span>起<span class="nsprice">￥1999</span></div>
+							</div>
+						</div>
+						<div class="card col-4 mr-2 p-0">
+							<img src="/public/img/ypms1.jpg" class="card-img-top align-self-center" alt="...">
+							<div class="card-body p-2 zhuanqupro">
+								<h5 class="text-center mt-1">女表礼盒套装</h5>
+								<div class="text-center pricetitle">￥<span class="price">499</span>起<span class="nsprice">￥1999</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="float-right col-9 bg-white" id="mydzmain">
+					<div class="infoChecked m-3 border-bottom">地址管理</div>
+					<div class="m-3 row" id="mydzgroup">
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+
+		<div class="bg-white border-top mt-5">
+		<div class="bodyfooter bg-white container">
+		<div class="float-left mt-3"><img src="/public/img/logo@2x.30cd8c00.png"></div>
+		<div class="float-right mt-4">
+			<div class="float-left mr-3 finfo">
+				<p>©12345678.com 苏123456789 苏ICP备12345642号-0 &nbsp;&nbsp; 123456789456号</p>
+				<p>企业名称：有品信息科技有限公司 关于我们 入驻有品 知识产权侵权投诉</p>
+				<p>平台运营资质证照 医疗器械网络交易服务第三方平台备案凭证</p>
+				<p>****平台运营主体变更公告</p>
+				<p>**市**区****街*号*栋*层</p>
+			</div>
+			<div class="float-right">
+				<img src="/public/img/f-logo.76889756.png">
+			</div>
+		</div>
+	</div>
+		<div class="clearfix"></div>
+		</div>
+	<div class="bg-white align-content-center" id="newaddressbody" style="display: none">
+	<div class="container shadow p-3 mb-5" >
+		<h3 class="mb-3" id="userinfomsg">添加新信息</h3>
+		<div class="input-group pl-2 mt-3 rounded-left bg-light">
+			<div class="input-group-prepend m-auto pr-2 bg-light">
+				<img src="/public/img/bootstrap-icons-1.7.1/telephone-plus-fill.svg" width="16" height="16"/>
+			</div>
+			<input type="text" class="form-control bg-light border-0" placeholder="手机号码" id="usertelphone">
+		</div>
+		<div class="input-group pl-2 mt-3 rounded-left bg-light">
+			<div class="input-group-prepend m-auto pr-2 bg-light">
+				<img src="/public/img/bootstrap-icons-1.7.1/shield-fill.svg" width="16" height="16"/>
+			</div>
+			<input type="text" class="form-control bg-light border-0" placeholder="请输入真实名称" id="userrelname">
+		</div>
+		<div class="input-group pl-2 mt-3 rounded-left bg-light">
+			<div class="input-group-prepend m-auto pr-2 bg-light">
+				<img src="/public/img/bootstrap-icons-1.7.1/shield-fill.svg" width="16" height="16"/>
+			</div>
+			<input type="text" class="form-control bg-light border-0" placeholder="请输入昵称" id="useritname">
+		</div>
+		<div class="input-group pl-2 mt-3 rounded-left bg-light">
+			<div class="input-group-prepend m-auto pr-2 bg-light">
+				<img src="/public/img/bootstrap-icons-1.7.1/shield-fill.svg" width="16" height="16"/>
+			</div>
+			<input type="text" class="form-control bg-light border-0" placeholder="请输入地址" id="useraddress">
+		</div>
+		<div class="input-group pl-2 mt-3 rounded-left bg-light">
+			<div class="input-group-prepend m-auto pr-2 bg-light">
+				<img src="/public/img/bootstrap-icons-1.7.1/shield-fill.svg" width="16" height="16"/>
+			</div>
+			<input type="text" class="form-control bg-light border-0" placeholder="请输入邮政编号" id="zipcode">
+		</div>
+		<input type="button" class="p-3 bg-warning border-0 w-100 mt-3 rounded" value="注册新信息!" id="registerbtn" />
+	</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+    <div class="navsbox">
+        <div class="container"><ul class="nav justify-content-end" id="navlist">
+            {{block 'content'}}
+            {{if username==null}}
+            <li class="nav-item hideplr" id="gologin">
+                <a class="nav-link active" href="/login">登录</a>
+            </li>
+            <li class="nav-item" id="goregister">
+                <a class="nav-link active" href="/register">注册</a>
+            </li>
+            {{else}}
+            <li class='nav-item hideplr text-center mt-1' id='usernav'>
+                <img src='public/img/head.jpg' class='headimg m-auto ' style='height: 32px;'/>
+                <div class='dropdown float-right'>
+                <button class='btn btn-default dropdown-toggle usernamenav' type='button' id='dropdownMenu1' data-toggle='dropdown' style='color: white'>
+                  {{username}} </button>
+                 <ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1' style='color: black;'>
+                 <li role='presentation'><a role='menuitem' tabindex='-1' href='/userinfo?model=mydd' style='color: black;' id='mydd'>我的订单</a></li>
+                   <li role='presentation'><a role='menuitem' tabindex='-1' href='/userinfo?model=myzc' style='color: black;' id='myzc'>我的资产</a></li>
+                   <li role='presentation'><a role='menuitem' tabindex='-1' href='/userinfo?model=mysc' style='color: black;' id='mysc'>我的收藏</a></li>
+                 <li role='presentation'><a role='menuitem' tabindex='-1' href='/userinfo?model=mydz' style='color: black;' id='mydz'>地址管理</a></li>
+                  <li role='presentation' ><a role='menuitem' tabindex='-1' href='/' style='color: black;' id='quitlogin'>退出登录</a></li>
+                 </ul> 
+                </div>
+                </li>
+            {{/if}}
+            {{/block}}
+            <span class="border-right border-secondary cty"></span>
+            <li class="nav-item">
+                <a class="nav-link" href="#">帮助中心</a>
+            </li>
+            <span class="border-right border-secondary cty"></span>
+            <li class="nav-item">
+                <a class="nav-link" href="#">下载App</a>
+            </li>
+            <span class="border-right border-secondary cty"></span>
+            <li class="nav-item">
+                <a class="nav-link disabled">咨询凭证/协议规则&nbsp&nbsp</a>
+            </li>
+        </ul></div>
+    </div>

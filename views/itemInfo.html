@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, inital-scale=1" />
+		<script src="/public/js/jquery-3.6.min.js"></script>
+		<link rel='stylesheet' href="/public/css/bootstrap.min.css" />
+		<script src="/public/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="/public/css/index.css">
+		<script src="/public/js/base.js"></script>
+		<script src="/public/js/iteminfo.js"></script>
+		<title>[CT]</title>
+	</head>
+	<body>
+		{{include './pagehead.html'}}
+		<div id="search" class="border-bottom">
+			<div class="container">
+				<div class="float-left p-2">
+					<img src="/public/img/logo@2x.30cd8c00.png" class=" m-auto align-self-center" width="166px" height="51px"  />
+				</div>
+				<div class="align-items-end float-right p-3">
+					<div class="input-group border pl-2 rounded-left">
+						<div class="input-group-prepend m-auto pr-2">
+							<img src="/public/img/bootstrap-icons-1.7.1/search.svg" width="16" height="16"/>
+						</div>
+						<input type="text" class="form-control" placeholder="找找宝贝" id="searchinput">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button" id="searchbtn">搜索</button>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div id="iteminfoid" style="display: none;">{{iteminfo.id}}</div>
+		<div class="container">
+			<div class="row mt-3 overflow-hidden" id="iteminfomain">
+				<div class="float-left col-5">
+					<div class="float-left w-75">
+						<img src="/public/img/{{iteminfo.id}}/{{iteminfo.pri[0]}}" class="w-100">
+					</div>
+					<div class="float-right w-25">
+						{{each iteminfo.pri}}
+						{{if $index!=0}}
+						<img src="/public/img/{{iteminfo.id}}/{{$value}}" class="h-25 w-100 pb-2 pl-2">
+						{{/if}}
+						{{/each}}
+					</div>
+				</div>
+				<div class="float-right col-7">
+					<h5 class="mb-1">{{iteminfo.name}}</h5>
+					<div class="timerred d-inline-block smfont">有品秒杀</div>
+					<div class="smfont fontgary">{{iteminfo.incd}}</div>
+					<div class="bg-light pb-3">
+						<div class="smfont ml-1">售价:<span class="ml-4 lgfont timeround">￥{{iteminfo.price}}</span><span class="smfont fontgary ml-2">¥{{iteminfo.fakeprice}}</span></div>
+						<div class="smfont ml-1">服务:<span class="ml-4 timeround">假一赔十</span><span class="ml-4 timeround">七天无理由</span><span class="ml-4 timeround">官方店铺</span></div>
+						<div class="ml-5"><span class="ml-2 timeround">三天内送达</span></div>
+					</div>
+					<div class="smfont mt-2">
+						配送至:&nbsp{{iteminfo.address}}<span><a href="#">修改</a></span>
+					</div>
+					<div class="mt-3">
+						<input type="button" class="CheckBTN pl-4 pr-4 pt-2 pb-2 rounded mdfont border-0" value="加入购物车" id="getincart">
+						<span><input type="button" class="CheckBTN2  ml-4 pl-4 pr-4 pt-2 pb-2 rounded mdfont" value="立即购买" id="getinbuy"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-10">
+					<div class="infoChecked m-3 border-bottom">评论</div>
+						{{if pinlun.length!=0}}
+						<div class="pinglunbody" id="plbody">
+						{{each pinlun}}
+						<div class="p-3 row">
+							<div class="text-center col-1 ml-2"><img class="smhead" src="/public/img/head.jpg"></div>
+							<div class="col-10 ml-4 ">
+								<div>{{$value.itname}}</div>
+								<div class="smfont fontgary">{{$value.plti}}|{{$value.name}}</div>
+								<div class="mdfont">{{$value.plco}}</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						{{/each}}
+						{{else}}
+						<div class='text-center m-auto col-5'>
+							<img class='mt-5 w-25 h-25' src='public/img/nullview.png'>
+							<div class='mt-3'>暂无评论！</div>
+						{{/if}}
+					</div>
+				</div>
+				<div class="col-2" id="moreitem">
+					<div class="infoChecked m-3 border-bottom text-center">更多宝贝</div>
+					{{each moreitem}}
+					<div class="card p-0 mb-3">
+						<img src="/public/img/{{$value.id}}/{{$value.pri[0]}}" class="card-img-top align-self-center" alt="...">
+						<div class="card-body p-2 zhuanqupro">
+							<div class="text-center mt-1 smfont">{{$value.name}}</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+
+		</div>
+	<div class="border-top mt-4">
+		<div class="container">
+			<div class="bodyfooter">
+				<div class="float-left mt-3"><img src="/public/img/logo@2x.30cd8c00.png"></div>
+				<div class="float-right mt-4">
+					<div class="float-left mr-3 finfo">
+						<p>©12345678.com 苏123456789 苏ICP备12345642号-0 &nbsp;&nbsp; 123456789456号</p>
+						<p>企业名称：有品信息科技有限公司 关于我们 入驻有品 知识产权侵权投诉</p>
+						<p>平台运营资质证照 医疗器械网络交易服务第三方平台备案凭证</p>
+						<p>****平台运营主体变更公告</p>
+						<p>**市**区****街*号*栋*层</p>
+					</div>
+					<div class="float-right">
+						<img src="/public/img/f-logo.76889756.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</body>
+</html>

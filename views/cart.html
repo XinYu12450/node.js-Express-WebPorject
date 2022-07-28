@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <script src="/public/js/jquery-3.6.min.js"></script>
+    <link rel='stylesheet' href="/public/css/bootstrap.min.css" />
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="/public/js/base.js"></script>-->
+    <script src="/public/js/cart.js"></script>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <title>购物车</title>
+</head>
+<body>
+    {{include './pagehead.html'}}
+
+<div class="container">
+    <div class="float-left p-2">
+        <img src="/public/img/logo@2x.30cd8c00.png" class=" m-auto align-self-center" width="166px" height="51px"  />
+    </div>
+    <div class="align-items-end float-right p-3">
+        <div class="input-group border pl-2 rounded">
+            <div class="input-group-prepend m-auto pr-2">
+                <img src="/public/img/bootstrap-icons-1.7.1/search.svg" width="16" height="16"/>
+            </div>
+            <input type="text" class="form-control" placeholder="找找宝贝" id="searchinput">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="searchbtn">搜索</button>
+            </div>
+            <span class="p-1"><a class="text-decoration-none" href="/cart"><img src="/public/img/bootstrap-icons-1.7.1/cart.svg" id="gocart" class="gocart"></a></span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="navlist">
+        首页&nbsp > &nbsp个人中心&nbsp > &nbsp购物车
+    </div>
+    
+            {{if usercart!=null}}
+            <div class="mt-4" id="itemgroup">
+                <div class="row bg-light" id="protr">
+                    <div class="col-2 m-auto p-2"><input type="checkbox" id="SelAll" class="p-2" onselect="null"/><span class="ml-3">全选</span></div>
+                    <div class="col-4 m-auto">商品信息</div>
+                    <div class="col-2 m-auto">单价</div>
+                    <div class="col-2 m-auto text-center">数量</div>
+                    <div class="col-1 m-auto text-center">金额</div>
+                    <div class="col-1 m-auto text-center">操作</div>
+                </div>
+                    <div id="itemgroupli">
+            {{each usercart}}
+    <div class="row bg-light mt-4">
+        <div class="col-2 m-auto p-2">
+            <input type="checkbox" onselect="null" class="p-2" name=procheckbox id="{{$index}}" />
+            <span class="text-center">
+                <img src="/public/img/{{$value.comm_id}}/head.{{$value.pri[5]}}{{$value.pri[6]}}g" class="w-75 h-75">
+            </span>
+        </div>
+        <div class="col-4 m-auto">
+            <a href="/iteminfo?itemid={{$value.comm_id}}" class="text-decoration-none drakfont">
+                {{$value.name}}
+            </a>
+        </div>
+        <div class="col-2 m-auto">
+            ￥{{$value.price}}
+        </div>
+        <div class="col-2 m-auto text-center">
+            1
+        </div>
+        <div class="col-1 m-auto">
+            ￥{{$value.price}}
+        </div>
+        <div class="col-1 m-auto text-center">
+            <a class="text-decoration-none mdfont drakfont"  name="delitem" >X</a>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class='text-center m-auto'>
+        <img class='mt-5 w-25 h-25' src='/public/img/no-order.png'>
+        <div class='mt-3'>暂无商品记录！</div>
+    </div>
+    </div>
+    </div>
+    {{/if}}
+    
+    <div class="mt-4 bg-light row" id="gobuybtngroup">
+        <div class="col-7 m-auto p-2" id="itemsum">合计 &nbsp已选[SUM]件</div>
+        <div class="col-3 m-auto p-2">
+            <div class="mdfont">合计:￥<span class="mdfont timeround" id="itemtotal">[TOTAL]</span></div>
+            <div class="smfont fontgary">总额:￥<span class="smfont" id="itemtotal2">[TOTAL]</span>&nbsp<span id="itemfakezk">,立减￥[ZKNUM]</span></div>
+        </div>
+        <div class="col-2">
+            <input type="button" class="timerred w-100 h-100 border-0 m-0 p-0" value="立即购买" id="buyitem">
+        </div>
+    </div>
+    {{include './pagebor.html'}}
+</div>
+
+</div>
+</body>
+</html>

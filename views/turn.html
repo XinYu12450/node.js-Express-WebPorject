@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../public/js/jquery-3.6.min.js"></script> 
+    <title>重定向</title>
+</head>
+<body>
+    <div style="display: none;" id="go">{{go}}</div>
+    <script>
+        var go=$("#go").html();
+        console.log(go) 
+        window.location.href=go;
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-3.6.min.js"></script>
+    <link rel='stylesheet' href="css/bootstrap.min.css" />
+    <title>test</title>
+</head>
+<script>
+	$(document).ready(function(){
+	    $("button").click(function(){
+	        $.ajax({
+				type:'get',
+				url:'http://127.0.0.1:1111/get/selAdmin/',
+				data:{
+					"name":"1"
+				},
+				crossDomain:true,
+				dataType:'json',
+				success:function(data,status){
+					alert("数据: " + data + "\n状态: " + status);
+				}
+			})
+	    });
+	});
+</script>
+<body>
+	<button>GetJson</button>
+</body>
+</html>
